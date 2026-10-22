@@ -8,7 +8,9 @@
   {% assign canonical_url = page.url | replace: "index.html", "" | prepend: site.url %}
 {% endif %}
 
-<title>{{ site.title }}的主页</title>
+<title>{% if page.lang == 'en' %}Xiaoda Yang | Academic Homepage{% else %}{{ site.title }}的主页{% endif %}</title>
+<link rel="alternate" hreflang="zh-CN" href="{{ '/' | absolute_url }}">
+<link rel="alternate" hreflang="en" href="{{ '/en/' | absolute_url }}">
 
 {% assign seo_description = page.description | default: page.excerpt | default: site.description %}
 {% if seo_description %}
@@ -29,13 +31,13 @@
   {% assign seo_author_twitter = seo_author_twitter | replace: "@", "" %}
 {% endif %}
 
-<meta property="og:locale" content="en">
-<meta property="og:site_name" content="{{ site.title }}">
-<meta property="og:title" content="{{ site.title }}">
+<meta property="og:locale" content="{% if page.lang == 'en' %}en_US{% else %}zh_CN{% endif %}">
+<meta property="og:site_name" content="{% if page.lang == 'en' %}Xiaoda Yang{% else %}{{ site.title }}{% endif %}">
+<meta property="og:title" content="{{ page.title | default: site.title | escape }}">
 
 {% if seo_url %}
-  <link rel="canonical" href="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
-  <meta property="og:url" content="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
 {% endif %}
 
 {% if page.excerpt %}

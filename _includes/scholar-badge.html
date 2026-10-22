@@ -1,0 +1,4 @@
+{% assign scholar = site.data.scholar %}
+<a class="scholar-badge" href="{{ site.author.googlescholar }}" title="Google Scholar {% if page.lang == 'en' %}Citations{% else %}引用量{% endif %}">
+  <span class="scholar-badge__label"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Google Scholar {% if page.lang == 'en' %}Citations{% else %}引用{% endif %}</span><span class="scholar-badge__count">{{ scholar.citedby | default: '—' }}</span>
+</a>

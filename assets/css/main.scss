@@ -40,6 +40,107 @@
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
 
+.page__content img.github-stars-badge {
+    display: inline-block;
+    width: auto;
+    height: 20px;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.scholar-badge {
+    display: inline-flex;
+    align-items: stretch;
+    overflow: hidden;
+    border-radius: 3px;
+    vertical-align: middle;
+    font-size: .8em;
+    line-height: 1.6;
+    white-space: nowrap;
+    text-decoration: none !important;
+    box-shadow: 0 0 0 1px #e4e8ee;
+}
+.scholar-badge__label {
+    background: #f6f6f6;
+    color: #475467;
+    padding: .15em .6em;
+}
+.scholar-badge__count {
+    background: #99ccff;
+    color: #153759;
+    padding: .15em .65em;
+    font-weight: 600;
+}
+.author__wechat {
+    clear: both;
+    margin-top: .75em;
+    font-size: .8em;
+    overflow-wrap: anywhere;
+    span { user-select: text; }
+}
+
+.publication-card {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: 1.5em;
+    align-items: center;
+    padding: 1.5em 0;
+    border-bottom: 1px solid #e8edf2;
+}
+
+.page__content .publication-figure {
+    display: block;
+    min-width: 0;
+    margin: 0;
+
+    a { display: block; }
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid #e8edf2;
+        border-radius: 6px;
+        background: #fff;
+    }
+
+    figcaption {
+        margin-top: .5em;
+        text-align: center;
+        font-size: .75em;
+        color: #667085;
+        a { display: inline; }
+    }
+}
+
+.publication-details {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    p:last-child { margin-bottom: 0; }
+}
+
+.research-submissions {
+    border-left: 3px solid #d5e2f5;
+    padding-left: 1.2em;
+    h4 { margin-bottom: .4em; }
+}
+
+.submission-status {
+    display: inline-block;
+    color: #70501a;
+    background: #fff4db;
+    border-radius: 4px;
+    padding: .15em .65em;
+    font-size: .8em;
+}
+
+@media (max-width: 700px) {
+    .publication-card {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1em;
+    }
+}
+
 .paper-box {
     display: flex;
     justify-content: left;

@@ -5,14 +5,21 @@
         <button><div class="navicon"></div></button>
         <ul class="visible-links">
           <li class="masthead__menu-item masthead__menu-item--lg masthead__menu-home-item">
-            <a href="https://tangjyan.github.io/" target="_self">
-              <img class="svg" src="/images/en.svg" width="20pt"> 
-              English
+            <a href="{% if page.lang == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}" target="_self">
+              {% if page.lang == 'en' %}Xiaoda Yang{% else %}{{ site.author.name }}{% endif %}
             </a>
           </li>
-          {% for link in site.data.navigation.main %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+          {% if page.lang == 'en' %}{% assign navigation = site.data.navigation.en %}{% else %}{% assign navigation = site.data.navigation.main %}{% endif %}
+          {% for link in navigation %}
+            <li class="masthead__menu-item"><a href="{{ link.url | relative_url }}" target="_self">{{ link.title }}</a></li>
           {% endfor %}
+          <li class="masthead__menu-item">
+            {% if page.lang == 'en' %}
+            <a href="{{ '/' | relative_url }}" target="_self" lang="zh-CN" hreflang="zh-CN">中文</a>
+            {% else %}
+            <a href="{{ '/en/' | relative_url }}" target="_self" lang="en" hreflang="en">English</a>
+            {% endif %}
+          </li>
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>

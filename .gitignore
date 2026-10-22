@@ -1,3 +1,10 @@
 _site/
 push.sh
 .DS_Store
+vendor/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+log/
+my_information/
+__pycache__/
